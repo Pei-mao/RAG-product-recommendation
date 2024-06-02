@@ -48,3 +48,5 @@ Allow users to input their questions on the front end, search the database based
   Product page
 
 ## Results
+
+![Result_1 Image](images/Result_1.png)
