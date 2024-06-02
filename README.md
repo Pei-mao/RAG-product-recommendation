@@ -49,4 +49,4 @@ Allow users to input their questions on the front end, search the database based
 
 ## Results
 
-![Result_1 Image](images/Result_1.PNG)
+![Result_3 Image](images/Result_3.PNG)
