@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .chatbox {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">首頁</h1>
+        <div class="chatbox">
+            <form id="chat-form" method="POST">
+                <input type="text" id="user-input" name="query" placeholder="輸入您的問題..." style="width: 100%; padding: 10px;">
+                <button type="submit" style="margin-top: 10px; padding: 10px;">提交</button>
+            </form>
+            <div id="chat-response" style="margin-top: 20px;"></div>
+        </div>
+        <a href="products.html" class="button">商品頁</a>
+    </div>
+
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input').value;
+            const chatResponseDiv = document.getElementById('chat-response');
+
+            try {
+                const response = await fetch('http://localhost:30000/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query: userInput })
+                });
+
+                const data = await response.json();
+                if (data.error) {
+                    chatResponseDiv.innerHTML = `<p style="color: red;">錯誤：${data.error}</p>`;
+                } else {
+                    let answer = data.answer;
+                    const products = data.products;
+
+                    products.forEach(product => {
+                        const link = `<a href="${product.name}.html">${product.name}</a>`;
+                        answer = answer.split(product.name).join(link);
+                    });
+
+                    chatResponseDiv.innerHTML = `<p>${answer}</p>`;
+                }
+            } catch (error) {
+                chatResponseDiv.innerHTML = `<p style="color: red;">錯誤：${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
