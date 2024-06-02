@@ -1,12 +1,16 @@
-### RAG-product-recommendation
+## RAG-product-recommendation
 Use OpenAI API to connect to Elasticsearch search engine, and then recommend users.
 
-### Purpose
+## Purpose
 Allow users to input their questions on the front end, search the database based on the users' questions, and respond with suitable products for the users.
 
 ## Preparation
-Install exe [Elasticsearch](https://www.elastic.co/cn/elasticsearch)
-Install python package: pip install flask
+
+1. Install exe [Elasticsearch](https://www.elastic.co/cn/elasticsearch)
+2. Install python package: pip install flask
+3. Start Elasticsearch
+4. Run app.py
+5. Use python -m http.server 20000 to start index.html.
 
 ## Code Description
 
@@ -42,3 +46,5 @@ Install python package: pip install flask
 
 - **products.html**:  
   Product page
+
+## Results
