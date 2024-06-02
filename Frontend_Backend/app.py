@@ -44,12 +44,11 @@ def search():
     # This is the default and can be omitted
     api_key=openai_api_key,
     )
-    print("111111111111111111: ", {"role": "user", "content": f"{query}, Help me choose a product| {context}"})
+
     chat_completion = client.chat.completions.create(
         messages=[
             {"role": "system", "content": "You are a company product salesman."},
             {"role": "user", "content": f"{query}, Help me choose two of these product and don't change the original product name.| {context}"}
-            #{"role": "user", "content": f"Query: {query}, Help me choose a product| {context}\nAnswer:"}
         ],
         model="gpt-4o",
         max_tokens=200

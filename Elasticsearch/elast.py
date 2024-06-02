@@ -28,21 +28,10 @@ for index, row in df.iterrows():
 for product in products[:10]:
     print(product)
 
-#print(products)
 
 # 連接到Elasticsearch
 es = Elasticsearch([{'host': 'localhost', 'port': 9200, 'scheme': 'http'}])
 
-# 商品數據
-# products = [
-#     {'name': 'KAFEN卡氛極致旅行組60ml_3入', 'description': '描述1'},
-#     {'name': '【99好運轉不停】全方位維他命防護配方發泡錠10錠', 'description': '描述2'},
-#     {'name': '電影交換券', 'description': '描述3'},
-#     {'name': 'ECONECO資料夾', 'description': '描述4'},
-#     {'name': 'AnimatoSHA無矽靈馬油昆布洗髮精700ml(新)', 'description': '描述5'},
-#     {'name': '測試商品', 'description': '描述6'},
-#     # 添加更多商品數據...
-# ]
 
 # 創建索引並添加商品數據
 index_name = 'products'
@@ -58,11 +47,6 @@ actions = [
     }
     for product in products
 ]
-# try:
-helpers.bulk(es, actions)
-# except helpers.BulkIndexError as e:
-#     # 迭代每個錯誤
-#     for error in e.errors:
-#         print(json.dumps(error, indent=2))
 
+helpers.bulk(es, actions)
 print("商品數據已成功索引到Elasticsearch中")
