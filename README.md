@@ -1,5 +1,6 @@
 ## RAG-product-recommendation
 Use OpenAI API to connect to Elasticsearch search engine, and then recommend users.
+![Result_3 Image](images/Result_3.PNG)
 
 ## Purpose
 Allow users to input their questions on the front end, search the database based on the users' questions, and respond with suitable products for the users.
@@ -47,6 +48,3 @@ Allow users to input their questions on the front end, search the database based
 - **products.html**:  
   Product page
 
-## Results
-
-![Result_3 Image](images/Result_3.PNG)
