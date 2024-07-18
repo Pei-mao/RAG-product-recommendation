@@ -1,5 +1,5 @@
 ## RAG-product-recommendation
-Use OpenAI API to connect to Elasticsearch search engine, and then recommend users.
+This repository uses the OpenAI API to connect to the Elasticsearch search engine and provide product recommendations to users.
 
 ![Result_3 Image](images/Result_3.PNG)
 
