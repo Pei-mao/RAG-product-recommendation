@@ -9,10 +9,10 @@ Allow users to input their questions on the front end, search the database based
 ## Preparation
 
 1. Install exe [Elasticsearch](https://www.elastic.co/cn/elasticsearch)
-2. Install python package: pip install flask
+2. Install python package: `pip install flask`
 3. Start Elasticsearch
 4. Run app.py
-5. Use python -m http.server 20000 to start index.html.
+5. Use `python -m http.server 20000` to start index.html.
 
 ## Code Description
 
